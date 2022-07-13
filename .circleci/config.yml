@@ -27,15 +27,14 @@ commands:
 jobs:
   myjob1:  # Choose any name, such as `build`
       # The primary container, where your job's commands will run
-    print_greetings:
-    docker:
-      - image: circleci/node:13.8.0
-    steps:
-      - print_pipeline_id:
-          id: << pipeline.id >>
-      - run: echo HELLO
-      - run: echo WORLD
-      - run: echo $_env_name
+      docker:
+        - image: circleci/node:13.8.0
+      steps:
+        - print_pipeline_id:
+            id: << pipeline.id >>
+        - run: echo HELLO
+        - run: echo WORLD
+        - run: echo $_env_name
   create_infrastructure: 
     docker:
       - image: amazon/aws-cli
